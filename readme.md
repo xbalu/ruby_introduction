@@ -1,2 +1,2 @@
-This is a repository for Ruby introduction files.
+Rep for Ruby files
 xbalu

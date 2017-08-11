@@ -10,7 +10,7 @@ def print_tree_segment(starting_width, rows)
 end
 
 print_tree_segment(1, 3)
-print_tree_segment(3, 4)
-print_tree_segment(5, 4)
-print_tree_segment(7, 5)
+print_tree_segment(5, 3)
+print_tree_segment(7, 3)
+print_tree_segment(9, 3)
 print_tree_segment(3, 1)
