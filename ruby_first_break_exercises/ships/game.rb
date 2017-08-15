@@ -109,8 +109,8 @@ class Game
       column = field[0].ord - 64
 
       if @board[[number, column]] != :hit && @board[[number, column]] != :miss
-        check_field(number, column)
         @turns += 1
+        check_field(number, column)
       else
         puts "You cannot choose this field"
       end
@@ -118,6 +118,7 @@ class Game
   end
 
   def check_field(x, y)
+    print "[Turn #{@turns}] "
     if @ships_location[[x, y]] != nil
       @board[[x, y]] = :hit
 
