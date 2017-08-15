@@ -119,6 +119,7 @@ class Game
 
   def check_field(x, y)
     print "[Turn #{@turns}] "
+    
     if @ships_location[[x, y]] != nil
       @board[[x, y]] = :hit
 
