@@ -12,7 +12,6 @@ def initialize_curses_screen
   Curses.init_pair(2, Curses::COLOR_CYAN, 0)
   Curses.curs_set(0)
   Curses.noecho
-  # Curses.resizeterm(40,75)
 end
 
 def initialize_menu_screen
