@@ -1,6 +1,6 @@
 MENU_ROWS = 14
 MENU_COLS = 30
-GAME_ROWS = 25
+GAME_ROWS = 20
 GAME_COLS = 40
 INFO_ROWS = 12
 INFO_COLS = 15
@@ -12,6 +12,7 @@ def initialize_curses_screen
   Curses.init_pair(2, Curses::COLOR_CYAN, 0)
   Curses.curs_set(0)
   Curses.noecho
+  # Curses.resizeterm(40,75)
 end
 
 def initialize_menu_screen
@@ -34,7 +35,7 @@ end
 
 def initialize_info_screen
   top = (Curses.lines - INFO_ROWS) / 2
-  window = Curses::Window.new(INFO_ROWS, INFO_COLS, top, 10)
+  window = Curses::Window.new(INFO_ROWS, INFO_COLS, top, 3)
   window
 end
 
@@ -90,7 +91,7 @@ def print_menu(game, window, menu_arrow, bestscores)
   window.box(" ", " ", " ")
   window.setpos(2, 0)
   window.erase
-  
+
   if bestscores.print_bestscores == true
     window << "%-6s %-10s %-10s\n\n" % ["No", "Points", "Time"]
     bestscores.scores.length.times  do |i|

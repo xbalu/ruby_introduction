@@ -1,3 +1,4 @@
+require "./bestscores.rb"
 require "./game.rb"
 require "./ship.rb"
 

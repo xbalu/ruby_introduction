@@ -5,10 +5,14 @@ class Game
     @board = {}
     @ships_location = {}
     @turns = 0
+    @misses = 0
+    @bestscores = Bestscores.new
   end
 
   def start
     deploy_ships
+    @bestscores.print
+
     loop do
       print_board
       players_turn
@@ -119,7 +123,7 @@ class Game
 
   def check_field(x, y)
     print "[Turn #{@turns}] "
-    
+
     if @ships_location[[x, y]] != nil
       @board[[x, y]] = :hit
 
@@ -131,7 +135,8 @@ class Game
       end
     else
       @board[[x, y]] = :miss
-      puts "Miss"
+      @misses += 1
+      puts "Miss #{@misses}"
     end
   end
 
@@ -161,5 +166,7 @@ class Game
   def exit_game
     print_board
     puts "You have won the game in #{@turns} turns"
+    puts "Final score: #{@misses} misses"
+    @bestscores.check(@misses)
   end
 end
