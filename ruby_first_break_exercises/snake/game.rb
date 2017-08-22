@@ -1,8 +1,8 @@
 require "time"
 
 class Game
-  attr_reader :game_started, :game_speed, :start_time, :end_time, :last_eat
-  attr_accessor :game_fields, :lives, :points, :credits
+  attr_reader :game_started, :game_speed, :end_time, :last_eat
+  attr_accessor :start_time, :game_fields, :lives, :points, :credits, :paused, :pause_time
 
   def initialize
     @game_started = false
@@ -10,6 +10,8 @@ class Game
     @game_fields = {}
     @end_time = 0
     @credits = false
+    @paused = false
+    @pause_time = 0
   end
 
   def start_game(game, snake)
@@ -29,7 +31,7 @@ class Game
 
   def forward_game_started(game_window, info_window, snake)
     food_check
-    move_snake(game_window, info_window, snake)
+    move_snake(game_window, info_window, snake) if @paused == false
     yummy_msg_lifetime_check(info_window)
     print_game_info(info_window, self, snake)
     print_game_board(game_window)

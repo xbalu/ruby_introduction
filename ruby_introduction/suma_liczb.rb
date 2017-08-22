@@ -23,8 +23,8 @@
 
 # [v4] wzór na sume liczb parzystych
 def suma_liczb_parzystych(n)
-  n = n - 1 if n % 2 == 1
-  return if n <= 1
+  # n = n - 1 if n % 2 == 1
+  # return if n <= 1
   (2 + n) / 2 * (n / 2)
 end
 

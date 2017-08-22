@@ -62,6 +62,15 @@ def check_for_pressed_key(menu_window, game_window, game, snake, menu_arrow, bes
     elsif menu_arrow == 5
       exit
     end
+  when " "
+    if game.game_started && !game.paused
+      game.paused = true
+      game.pause_time = Time.now
+    else
+      game.paused = false
+      game.start_time += (Time.now - game.pause_time)
+      game.pause_time = 0
+    end
   when Curses::Key::LEFT
     if game.game_started && (snake.direction == :up || snake.direction == :down)
       snake.direction = :left
@@ -122,7 +131,10 @@ def print_game_info(window, game, snake)
   window << "%-9s#{snake.parts}\n" % "Length:"
   window << "%-9s#{game.points}\n" % "Points:"
   window << "%-9s#{game.lives}\n" % "Lives:"
-  window << "%-9s#{(Time.now - game.start_time).to_i}\n" % "Time:"
+  game.pause_time.is_a?(Time) ? (pause_time = Time.now - game.pause_time) : (pause_time = 0)
+  window << "%-9s#{(Time.now - game.start_time - pause_time).to_i}\n" % "Time:"
   window << "%-9sx#{game.game_speed}\n" % "Speed:"
+  window.setpos(10, 2)
+  game.paused ? (window << "PAUSED") : (window << "%-6s" % "")
   window.refresh
 end
