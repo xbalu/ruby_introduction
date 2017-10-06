@@ -32,12 +32,12 @@ def execute_operation(operation)
   when 4
     begin
       result = val1 / val2
-    rescue
+    rescue ZeroDivisionError
       puts "!! Error !! You cannot divide by 0\n\n"
       return
     end
   end
-  
+
   puts "==> #{val1} #{Array_symbols[operation - 1]} #{val2} = #{result}\n\n"
 end
 

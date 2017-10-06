@@ -9,7 +9,7 @@ def quick_sort(array, left, right)
   j = right
   x = array[(left + right) / 2]
 
-  begin
+  loop do
     while array[i] < x
       i += 1
     end
@@ -23,7 +23,9 @@ def quick_sort(array, left, right)
       i += 1
       j -= 1
     end
-  end while i <= j
+
+    break if i > j
+  end
 
   quick_sort(array, left, j) if (left < j)
   quick_sort(array, i, right) if (right > i)

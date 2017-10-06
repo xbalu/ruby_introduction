@@ -17,7 +17,7 @@
 # Array.index
 def find_index(array, value)
   index = array.index(value)
-  index == nil ? (puts "not found") : (puts index)
+  puts(index || "not found")
 end
 
 find_index([1, 2, 3, 4, 5], 3)

@@ -1,9 +1,6 @@
 def gcd(num1, num2)
-  num3 = 0
   while num2 != 0
-    num3 = num1 % num2
-    num1 = num2
-    num2 = num3
+    num1, num2 = num2, num1 % num2
   end
   num1
 end

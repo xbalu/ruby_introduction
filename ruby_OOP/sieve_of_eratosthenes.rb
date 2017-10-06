@@ -1,8 +1,6 @@
-include Math
-
 def sieve_of_eratosthenes(min, max)
   min = 2 if min < 2
-  array = Array.new
+  array = []
   (min..max).each { |value| array.push(value) }
 
   (min..Math.sqrt(max).to_i).each do |value|

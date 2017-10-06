@@ -1,7 +1,10 @@
 def fibo(n)
   arr = [0, 1]
-  (n - 2).times { |step| arr.push(arr[step + 1] + arr[step]) }
-  n.times { |step| puts arr[step] }
+  (n - 2).times do |step|
+    arr.push(arr[step + 1] + arr[step])
+    puts arr[step]
+  end
+  puts arr[-2], arr[-1]
 end
 
 if ARGV.length != 1

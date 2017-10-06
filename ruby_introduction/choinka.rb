@@ -1,8 +1,8 @@
-AreaWidth = 75
+AREA_WIDTH = 75
 
 def print_tree_segment(starting_width, rows)
   rows.times do |step|
-    spaces = (AreaWidth - starting_width) / 2 - step
+    spaces = (AREA_WIDTH - starting_width) / 2 - step
     spaces.times { print " "}
     (starting_width + 2 * step).times { print "*" }
     print "\n"

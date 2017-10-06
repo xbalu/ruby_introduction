@@ -112,7 +112,7 @@ class Game
 
   def print_game_board(game_window)
     game_window.color_set(1)
-    game_window.box("#", "#", "#")
+    game_window.box("X", "X", "X")
 
     (1..(GAME_ROWS - 2)).each do |i|
       (1..(GAME_COLS - 2)).each do |j|
